@@ -1,0 +1,18 @@
+Alexander Neuwirth
+
+1) 
+	guten_tag.f90
+2) 
+	a)
+		square.f90
+	b)
+		1 Variable
+	c)
+		Entspricht der Theorie.
+3)
+	a)	Y
+	b)	N, weil "3"
+	c)	N, weil "*"
+	d)	N, weil "-"
+	e)	Y, aber 
+
