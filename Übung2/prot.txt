@@ -1,0 +1,11 @@
+1)
+	a), ist zulässig, jedoch führt bsplw. x<0 und y elem R\G zu NaN
+	c), weil 3x kein zulässiger Variablenname ist
+	g), weil ^ kein zulässiger Operator ist.
+2)
+	a) 6, weil (4/5)/=0
+	b) 1., weil  1**3/=1
+3)
+	pyt.f90
+4)
+	fxy.f90

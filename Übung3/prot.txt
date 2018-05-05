@@ -1,0 +1,17 @@
+Alexander Neuwirth, Übung 3, 3.5.18, Dr. Marcus Böckmann
+
+1) 
+	a)
+		fac.f90
+	b)
+		12! stimmt noch, 13! stimmt nicht mehr, da es zu einem Integer-Overflow kommt.
+		Mit REAL stimmen auch noch höhere Fakultäten (bis zu 34!, danach ergibt sich Infinity), da mit Mantisse und Exponent gerechnet wird was einen höheren Wertebereich ermöglicht.
+2)
+	sum.f90
+	Die Summe konvergiert gegen 2. 
+3)
+	a)
+		sin.f90
+		Mit größerem x ist die Anzahl der gesamten Durchläufe n höher, da der zunächst pro Iteration addierte Wert auch höher ist und erst durch (2i-1)! reduziert werden muss, um die Genauigkeitsbedingung erfüllen zu können.
+	b)
+		sin.f90
