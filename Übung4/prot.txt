@@ -1,0 +1,6 @@
+Alexander Neuwirth, Übung 4, 25.5.18, Dr. Marcus Böckmann
+
+1) 
+	period.f90
+2)
+	a),b) schwerpunkt.f90
