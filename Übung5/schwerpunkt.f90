@@ -35,14 +35,21 @@ PROGRAM schwerpunkt
                 99 CONTINUE
         END DO
 
-        CALL div_by_n(xyz,n,r)
+        CALL center(xyz,n,r)
         WRITE(*,'("Schwerpunkt (x,y,z): (", 2(F14.8,","),F14.8, ")")') r(:)
         
         WRITE(*,'("Zwei Atomindizes:")')
         READ(*,'(I3)') i
         READ(*,'(I3)') j
-        d = distance(xyz,i,j)
-        WRITE(*, '("Distanz ", (I3), " -> ", (I3) , " :" , F14.8)') i,j,d
+
+        IF(i >= n .OR. j >=n .OR. i < 0 .OR. j < 0) THEN
+                WRITE(*,*) "Indizes nicht im Wertebereich" 
+        ELSE
+                d = distance(xyz,i,j)
+                WRITE(*, '("Distanz ", (I3), " -> ", (I3) , " :" , F14.8)') i,j,d
+        END IF 
+
+
 
         CONTAINS
         REAL FUNCTION distance (xyz,i,j)
@@ -52,7 +59,7 @@ PROGRAM schwerpunkt
                 return 
         END FUNCTION
 
-        SUBROUTINE div_by_n (xyz,n,r)
+        SUBROUTINE center (xyz,n,r)
                 INTEGER :: n
                 REAL, DIMENSION(:,:) :: xyz
                 REAL, DIMENSION(3) :: r
