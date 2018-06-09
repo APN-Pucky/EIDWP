@@ -1,0 +1,4 @@
+Alexander Neuwirth, Übung 5, 9.6.18, Dr. Marcus Böckmann
+
+1) 
+	a)b)c)d) schwerpunkt.f90
