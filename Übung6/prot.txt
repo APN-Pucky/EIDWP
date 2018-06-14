@@ -1,0 +1,13 @@
+Alexander Neuwirth, Übung 6, 14.6.18, Dr. Marcus Böckmann
+
+1) 
+	Es wurde ein TYPE definiert. Dieser enthält Name, ID und Population des jeweiligen Lands. Außerdem wurde ein eigener Zuweisungsoperator für diesen TYPE hinzugefügt. (=> "module_land.f90")
+	Das Makefile kompiliert 'laender.f90' und 'module_land.f90' und linkt sie zu 'laender'
+
+	a) Der Selectionsort befindet sind in 'laender.f90'. Die Länderarrayelemente werden mittels der SUBROUTINE swap getauscht. Die SUBROUTINE print_laender gibt die Länderelemente in der Reihnfolge des übergebenen Integer-Arrays aus.
+
+	b) Analog zu a), jedoch wird das Element land_population an Stelle von land_name verglichen.
+
+	c) Das Array laenderlist wurde zunächst gemischt, um die Funktionalität des Programms zu zeigen. In 'laender.f90' gibt es die SUBROUTINE sort(a,b). b ist ein Integer Array mit gleicher SIZE wie a. a ist ein Real Array. Es wird nur b verändert. Das Ergebnis ist, dass b jedem alten Index den sortierten neuen Index zuordnet.
+
+Da meine letzten Abgaben scheinbar nicht funktioniert haben, habe ich den auf meinem PC erhaltenen Output in output.txt kopiert.
