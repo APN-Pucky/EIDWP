@@ -56,7 +56,10 @@ PROGRAM laender
         CALL sort(get_laender_populations_real_array(laenderlist),index_list) 
         WRITE(*,*) "Laender nach Population 2:"
         CALL print_laender(laenderlist,index_list)
+        !END
         CLOSE(8)
+        DEALLOCATE(laenderlist)
+        DEALLOCATE(index_list)
         CONTAINS 
         SUBROUTINE print_laender(laenderlist,index_list)
                 TYPE(LAND), DIMENSION(:),INTENT(IN) :: laenderlist
