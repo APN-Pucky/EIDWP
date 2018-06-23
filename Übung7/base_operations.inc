@@ -1,29 +1,28 @@
-
                 real function eval_pow(self,x)
                         class(funktion) :: self
 			real :: x
-                        eval_pow = self%p_f_array(1)%evaluate(x)**self%p_f_array(2)%evaluate(x)
+                        eval_pow = self%p_f_array(1)%get(x)**self%p_f_array(2)%get(x)
                 end function
 		real function eval_minus(self,x)
                         class(funktion) :: self
                         real :: x
-                        eval_minus = self%p_f_array(1)%evaluate(x)-self%p_f_array(2)%evaluate(x)
+                        eval_minus = self%p_f_array(1)%get(x)-self%p_f_array(2)%get(x)
                 end function
 		real function eval_plus(self,x)
                         class(funktion) :: self
                         real :: x
-                        eval_plus = self%p_f_array(1)%evaluate(x)+self%p_f_array(2)%evaluate(x)
+                        eval_plus = self%p_f_array(1)%get(x)+self%p_f_array(2)%get(x)
                 end function
                 real function eval_mult(self,x)
                         class(funktion) :: self
                         real :: x
-                        eval_mult = self%p_f_array(1)%evaluate(x)*self%p_f_array(2)%evaluate(x)
+                        eval_mult = self%p_f_array(1)%get(x)*self%p_f_array(2)%get(x)
                 end function
 
                 real function eval_div(self,x)
                         class(funktion) :: self
                         real :: x
-                        eval_div = self%p_f_array(1)%evaluate(x)/self%p_f_array(2)%evaluate(x)
+                        eval_div = self%p_f_array(1)%get(x)/self%p_f_array(2)%get(x)
                 end function
                 function base_pow(A,B) result(C)
                         class(funktion) :: A
