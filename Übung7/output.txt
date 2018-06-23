@@ -26,4 +26,4 @@
  Integral unter Grenze x2=
  Integral unter Grenze x2=   0.00000000    
 =======Simpson-Methode============================
-  0.105170913    
+ int e**x von x2 bis x1 =  0.105170913    

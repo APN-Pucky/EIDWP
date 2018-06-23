@@ -1,17 +1,17 @@
 program rechnung
-      use funktion
+      use mfunktion
       implicit none
-      real :: x_input=0 !value needed, because of memory poition should be allocated early
+      real :: x_input=0 !value needed, because of memory position should be allocated early!
       real :: best_h, h_opt_calc = sqrt(1e-7),xo,xu
-      real,dimension(3) :: ha = (/0.01,0.001,0.0001/)
+      real,dimension(3) :: ha = (/0.01,0.001,0.0001/) ! test h Werte!
       integer :: i,s
       procedure(func), pointer  :: p_opt_h => optimize_h
       type(funktion) :: x2,df,opt_h,ex
-      CALL init
+      CALL init !setup x,dx,d!
       s = size(ha)
 
       WRITE(*,100) "Ableiten"
-      x2 = (x**2.)/dx !x**2 ableiten
+      x2 = (x**2.)/dx !x**2 ableiten!
       x_input = read_x("x =")
       df = x2-2.*x !differenz funktion!
       WRITE(*,100) "Vorwaertsdifferenz-Methode"
@@ -35,12 +35,9 @@ program rechnung
       xu = read_x( "Integral unter Grenze x2=")
       WRITE(*,100) "Simpson-Methode"
       N=5
-      WRITE(*,*) "int e**x von x2 bis x1 =", ex%get((/xo,xu/))
-      !WRITE(*,*) "x=", r
-      !f = (e**x)*dx
-      !r = f%get((/0.1,0./))
-      !write(*,*) r
-      !CALL x2%dealloc
+      WRITE(*,*) "int e**x von x2 bis x1 =", ex%get((/xo,xu/)) !ex Wert!
+        
+      !formats!
       100 FORMAT(50("="),T8,A)
       101 FORMAT(50("-"),T5,A)
 
@@ -54,9 +51,9 @@ program rechnung
                       h = param_h
                       WRITE(*,*) "f(x)=(d*x**2)/dx , h=", param_h
                       WRITE(*,'(T9, "|->")',advance='no') 
-                      WRITE(*,*) 'f(x)=', x2%get(x_input)
+                      WRITE(*,*) 'f(x)=', x2%get(x_input) !x2 Wert!
                       WRITE(*,'(T9, "`->")',advance='no') 
-                      WRITE(*,*) 'diff=', df%get(x_input)
+                      WRITE(*,*) 'diff=', df%get(x_input) !x2 Differenz!
               end subroutine 
 
               function read_x (s)
@@ -68,7 +65,7 @@ program rechnung
               end function
 
 
-              real function optimize_h(oh)
+              real function optimize_h(oh) !Gibt die Differenz zum analytischen Wert in Abhängikeit von h=oh an der Stelle x_input!
                       real :: oh
                       type(funktion)  :: dff
                       real :: x_val

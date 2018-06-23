@@ -1,4 +1,4 @@
-MODULE funktion
+MODULE mfunktion
         IMPLICIT NONE
         type funktion
                 procedure(func), pointer,nopass :: p_f => id

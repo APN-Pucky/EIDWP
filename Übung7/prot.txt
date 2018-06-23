@@ -1,8 +1,8 @@
 Alexander Neuwirth, Übung 7, 23.6.18, Dr. Marcus Böckmann
 
 1) 
-	a) funktion.f90 ist ein Modul, dass die Verwendung von mathematische Funktionen ermoeglicht. 'base_operations.inc' und 'dx_operations.inc' sind grundlegende Sammlungen von functions, die in das Modul 'funktion' eingebunden sind. 'rechnung.f90' ist das Main-Program.
-	b) Das optimierte h ist gegeben durch h_opt=sqrt(2 em/f''(x)). em ist die Maschinenungenauigkeit. Im Fall f=x^2 und em=10^-7 betraegt f''(2)=2. Es folgt ein h_opt von 10^-3.5. Im Program rechnung wird einmal das theoretisch berechnete h_opt_calc mit h_opt_bi verglichen, welches durch das Bisektions-Verfahren bestimmt wurde. Es zeigt sich, dass der h Wert des Bisektions-Verfahren einen kleineren Fehler liefert, dennoch ist die Groeßenordung der h-Werte gleich. Dies liegt daran, dass in der Vorlesung lediglich der Fehler für den Worst-Case optimiert wurde. Außerdem treten möglicherweise zusätzliche Rundungsfehler bei den Zwischenschritten im Modul 'funktion' auf. (Des Weiteren kann die Maschinengenauigkeit em abweichen)
+	a) 'mfunktion.f90' ist ein Modul, dass die Verwendung von mathematische Funktionen ermoeglicht. 'base_operations.inc' und 'dx_operations.inc' sind grundlegende Sammlungen von functions, die in das Modul 'mfunktion' eingebunden sind. 'rechnung.f90' ist das Main-Program.
+	b) Das optimierte h ist gegeben durch h_opt=sqrt(2 em/f''(x)). em ist die Maschinenungenauigkeit. Im Fall f=x^2 und em=10^-7 betraegt f''(2)=2. Es folgt ein h_opt von 10^-3.5. Im Program rechnung wird einmal das theoretisch berechnete h_opt_calc mit h_opt_bi verglichen, welches durch das Bisektions-Verfahren bestimmt wurde. Es zeigt sich, dass der h Wert des Bisektions-Verfahren einen kleineren Fehler liefert, dennoch ist die Groeßenordung der h-Werte gleich. Dies liegt daran, dass in der Vorlesung lediglich der Fehler für den Worst-Case optimiert wurde. Außerdem treten möglicherweise zusätzliche Rundungsfehler bei den Zwischenschritten im Modul 'mfunktion' auf. (Des Weiteren kann die Maschinengenauigkeit em abweichen)
 
 2)
 	a) er=sqrt(N)*em+(b-a)^5*f''''/f/N^4 ist die Formel für den gesamten Fehler. Es kann nach e nach N abgeleitet und gleich Null gesetzt werden und nach N umgeformt werden, um das optimale N zu bestimmen. f''''/f beträgt for f(x)=e^x immer 1. Also ist der/dN = em/sqrt(N)/2 - (b-a)^5/N^5*4 = 0 => N^4.5 = (b-a)^5/em*8. a=0 b=0.1 => N=4.417~=5.
@@ -12,8 +12,9 @@ Alexander Neuwirth, Übung 7, 23.6.18, Dr. Marcus Böckmann
 	e) Einsetzten von N=70 in die Formel von 2)d) liefert er=1.041e-6
 	f) Das Simpson-Verfahren ist schneller, da weniger Stützpunkte verwendet werden und damit auch die Funktion weniger oft aufgerufen werden muss. Zusätzlich zeigte sich bei den theoretischen Fehlerabschätzungen, dass das Trapez-Verfahren  ungenauer ist.
 
+Die auf meinem PC erhaltenen Ausgaben sind in output.txt gespeichert.
 
-Zum modul funktion:
+Zum modul 'mfunktion':
 
 Es wird ein type(funktion) definiert, welcher function-pointer hat, welche auf functions verweisen, die ausgeführt werden sollen durch Operatoren +,-,*,/,**. (function meint im folgenden eine Fortran function und funktion eine type(funktion) objekt)
 Es wird drei funktionen d,x,dx zur Verfügung gestellt. Diese lassen sich durch Operatoren mit anderen funktionen oder Reals verknüpfen.
@@ -28,5 +29,4 @@ Die Parameter der Verfahren N,eps,h sind als Variablen des Moduls gegeben.
 Da ein funktion pointer array allocated wird sollte zum Schluss die Subroutine dealloc aufgerufen werden, welche die funktionen in dem pointer array recursiv deallocated.
 
 Um auch funktionen zu haben die nicht von x abhängen gibt es functions die dem interface func genügen müssen, jedoch die x Variable nicht benutzten. Dies führt zur Compiler Warnung unused-dummy-argument.  
-
 
