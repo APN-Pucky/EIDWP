@@ -5,12 +5,12 @@ Alexander Neuwirth, Übung 7, 23.6.18, Dr. Marcus Böckmann
 	b) Das optimierte h ist gegeben durch h_opt=sqrt(2 em/f''(x)). em ist die Maschinenungenauigkeit. Im Fall f=x^2 und em=10^-7 betraegt f''(2)=2. Es folgt ein h_opt von 10^-3.5. Im Program rechnung wird einmal das theoretisch berechnete h_opt_calc mit h_opt_bi verglichen, welches durch das Bisektions-Verfahren bestimmt wurde. Es zeigt sich, dass der h Wert des Bisektions-Verfahren einen kleineren Fehler liefert, dennoch ist die Groeßenordung der h-Werte gleich. Dies liegt daran, dass in der Vorlesung lediglich der Fehler für den Worst-Case optimiert wurde. Außerdem treten möglicherweise zusätzliche Rundungsfehler bei den Zwischenschritten im Modul 'mfunktion' auf. (Des Weiteren kann die Maschinengenauigkeit em abweichen)
 
 2)
-	a) er=sqrt(N)*em+(b-a)^5*f''''/f/N^4 ist die Formel für den gesamten Fehler. Es kann nach e nach N abgeleitet und gleich Null gesetzt werden und nach N umgeformt werden, um das optimale N zu bestimmen. f''''/f beträgt for f(x)=e^x immer 1. Also ist der/dN = em/sqrt(N)/2 - (b-a)^5/N^5*4 = 0 => N^4.5 = (b-a)^5/em*8. a=0 b=0.1 => N=4.417~=5.
+	a) er=sqrt(N)*em+(b-a)^5*f''''/f/N^4 ist die Formel für den gesamten Fehler. Es kann nach e nach N abgeleitet und gleich Null gesetzt werden und nach N umgeformt werden, um das optimale N zu bestimmen. f''''/f beträgt for f(x)=e^x immer 1. Also ist der/dN = em/sqrt(N)/2 - (b-a)^5/N^5*4 = 0 => N^4.5 = (b-a)^5/em*8. a=0 b=0.1 => N=4.417=~5.
 	b) Der exakte Wert des Integrals ist e^0.1-1 = 0.105170918. Folglich ist die Abweichung 5e-9.
 	c) Die Formel fuer er ist in 2)a) gegeben. Mit N=5 erhaelt man er=2.4e-7.
-	d) Analog zu 2)a) mit er = sqrt(N)*em+(b-a)^3*f''/f/N^2. Es ergibt sich ein N=69.3144~=70
+	d) Analog zu 2)a) mit er = sqrt(N)*em+(b-a)^3*f''/f/N^2. Es ergibt sich ein N=69.3144=~70
 	e) Einsetzten von N=70 in die Formel von 2)d) liefert er=1.041e-6
-	f) Das Simpson-Verfahren ist schneller, da weniger Stützpunkte verwendet werden und damit auch die Funktion weniger oft aufgerufen werden muss. Zusätzlich zeigte sich bei den theoretischen Fehlerabschätzungen, dass das Trapez-Verfahren  ungenauer ist.
+	f) Das Simpson-Verfahren ist schneller, da weniger Stützpunkte verwendet werden und somit die Funktion weniger oft aufgerufen/ausgerechnet werden muss. Zusätzlich zeigte sich bei den theoretischen Fehlerabschätzungen, dass das Trapez-Verfahren ungenauer ist.
 
 Die auf meinem PC erhaltenen Ausgaben sind in output.txt gespeichert.
 
