@@ -27,7 +27,7 @@ PROGRAM schwerpunkt
         ALLOCATE(elemname(n))
 
 
-        DO i=0,n-1,1
+        DO i=1,n,1
                 READ(7,'(A,3(F14.8))',IOSTAT=ierror) elemname(i), xyz(i,:)
                 IF(ierror > 0) GOTO 99 !CONTINUE
                 IF(ierror < 0) EXIT
@@ -42,7 +42,7 @@ PROGRAM schwerpunkt
         READ(*,'(I3)') i
         READ(*,'(I3)') j
 
-        IF(i >= n .OR. j >=n .OR. i < 0 .OR. j < 0) THEN
+        IF(i > n .OR. j >n .OR. i <= 0 .OR. j <= 0) THEN
                 WRITE(*,*) "Indizes nicht im Wertebereich" 
         ELSE
                 d = distance(xyz,i,j)
