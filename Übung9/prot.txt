@@ -1,0 +1,12 @@
+Alexander Neuwirth, Uebung 9, 7.7.18, Dr. Marcus Boeckmann
+
+1)
+Die Graphen des lokalen und globalen sowie die Messpunkte sind in lagrange_fit.pdf enthalten.
+Die subroutine load_data laedt die daten aus dem angegebene file in das dat(:,:) array.
+write_data füllt die output-Datein mit den fit-Werten in 5MeV Schritten.
+lagrange_fit berechnet für ein gegebenes x den Wert der Fit-Kurve an x aus. Die Berechnung des Fits beruht auf dem Intervall von from bis to. Über diesen Bereich werden die Messpunkte interpolliert durch die berechnung der zugehörigen Lambda-Werte. 
+Nach der Berechnung der Lambdawerte in der subroutine calc_lambda wird geprüft, ob die Summe der lambda_i ca. 1 ergibt (bis auf eps~1e-4 Rundsungsfehler).
+Aus dem lokalen Fit ergibt sich ein Maximum bei ~75MeV und eine Breite von ~54MeV, also hinreichend nahe an den Literaturwerten.
+Der globale fit ist weniger nahe an dem realen Verlauf, da sich bei 10MeV ein unerwartetes Maximum ergibt.
+In lagrange_steigung.pdf sieht man, dass die Steigung an den Nähten nicht stetig sind, außerdem sieht man nur Geraden, da jedes lambda ein Polynom vom Grad 2 ist.
+Diese Unstetigkeiten in der Ableitung treten bei einem kubischen Spline Fit nicht auf.
